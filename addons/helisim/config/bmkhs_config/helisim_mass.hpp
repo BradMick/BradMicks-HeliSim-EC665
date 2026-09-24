@@ -4,12 +4,9 @@
 //PLACEHOLDER: the AH-64D's non-FCR empty mass, CG limits and datum.
 //TODO(EC665): Tiger empty mass and moment, gross mass, datum and CG limits.
 
-    //Core picks FCR or non-FCR by the AH-64's "fcr_enable" animation, which the Tiger does not
-    //have - so it always takes the non-FCR pair. Both are declared the same so it cannot matter.
-    emptyMassFCR      = 6314; //kg
-    emptyMomFCR       = 32877.000;
-    emptyMassNonFCR   = 6314; //kg
-    emptyMomNonFCR    = 32877.000;
+    //Empty airframe. The Tiger declares no EmptyMassVariants - no fitted equipment changes it.
+    emptyMass         = 6314; //kg
+    emptyMom          = 32877.000;
 
     //Maximum gross mass - bounds the fixed test weight
     maxGrossMass      = 10433; //kg
