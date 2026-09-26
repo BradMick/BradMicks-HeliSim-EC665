@@ -55,10 +55,10 @@
     //PLACEHOLDER: AH-64D station arms. TODO(EC665): the Tiger's stub-wing station positions.
     numStations = 4;
     class Stations {
-        class Station01 { arm[] = {-2.160, 1.345, 0.000}; pylons[] = {1}; };
-        class Station02 { arm[] = {-1.500, 1.345, 0.000}; pylons[] = {2}; };
-        class Station03 { arm[] = { 1.500, 1.345, 0.000}; pylons[] = {3}; };
-        class Station04 { arm[] = { 2.160, 1.345, 0.000}; pylons[] = {4}; };
+        class Station01 { arm[] = {-2.335, 1.670,-0.440}; pylons[] = {1}; };
+        class Station02 { arm[] = {-1.475, 1.670,-0.230}; pylons[] = {2}; };
+        class Station03 { arm[] = { 1.475, 1.670,-0.230}; pylons[] = {3}; };
+        class Station04 { arm[] = { 2.335, 1.670,-0.440}; pylons[] = {4}; };
     };
 
     //INTERNAL MAGAZINES. The Tiger's guns are pod-mounted on a station, so none here.
