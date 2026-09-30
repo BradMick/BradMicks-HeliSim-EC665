@@ -17,17 +17,14 @@
 //  removable - 1 if the tank can be taken out; 0 is always fitted
 //  role      - "main" (an engine can draw from it) or "xfer" (feeds the mains only)
 
-    //CROSSFEED positions - which main each engine feeds from in each valve position, by
-    //position among the "main" tanks. The first entry is the default.
+    //CROSSFEED positions - which tank each engine feeds from in each valve position, by
+    //tank variableName. The first entry is the default.
     numCrossfeedModes = 3;
     class CrossfeedModes {
-        class Norm { position = "NORM"; engSources[] = {0, 1}; };
-        class Fwd  { position = "FWD";  engSources[] = {0, 0}; };
-        class Aft  { position = "AFT";  engSources[] = {1, 1}; };
+        class Norm { position = "NORM"; engSources[] = {"fwdTank", "aftTank"}; };
+        class Fwd  { position = "FWD";  engSources[] = {"fwdTank", "fwdTank"}; };
+        class Aft  { position = "AFT";  engSources[] = {"aftTank", "aftTank"}; };
     };
-
-    //Which main tank the APU draws from. Unused with no APU modelled, but Core reads it.
-    apuFuelSource = 1;
 
     //XFER pump destinations, in main order.
     xferDestinations[] = {"FWD", "AFT"};
