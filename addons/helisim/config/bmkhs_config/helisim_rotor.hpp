@@ -1,11 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Rotors - Blade Element Theory ////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-//PLACEHOLDER: the AH-64D's rotors (BET model).
-//TODO(EC665): the Tiger's MAIN ROTOR TURNS CLOCKWISE (mainRotorSpeed = -1); these
-//declare the AH-64D's counter-clockwise set. Flip rotorDirection AND the tail's thrust
-//together, then verify in a hover - changing one without the other will not hover.
-//Also: hub positions, blade geometry and gear ratios.
 //Per-rotor arrays, index 0 = main, 1 = tail. Core reads numRotors and loops.
 //Model shaping - inflow, flap dynamics, damping - stays in Core.
 

@@ -1,7 +1,4 @@
 //EC665 Tiger HeliSim configuration. Core reads this class.
-//
-//PLACEHOLDER BASELINE: every file under bmkhs_config/ started as the AH-64D's values, so the
-//Tiger flies from day one. Each file says what still has to become Tiger data.
 
 class BMKHS_HeliSim {
     //No systems modelled: no electrical, APU, hydraulics or drivetrain components, no

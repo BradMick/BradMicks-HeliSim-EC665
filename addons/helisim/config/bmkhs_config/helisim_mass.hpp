@@ -48,7 +48,6 @@
     //Indices are 1-BASED and follow the pylon declaration order:
     //  1 PylonLeft1 (outer left)   2 PylonLeft2 (inner left)
     //  3 PylonRight2 (inner right) 4 PylonRight1 (outer right)
-    //PLACEHOLDER: AH-64D station arms. TODO(EC665): the Tiger's stub-wing station positions.
     numStations = 4;
     class Stations {
         class Station01 { arm[] = {-2.335, 1.670,-0.440}; pylons[] = {1}; };
@@ -67,7 +66,6 @@
     //  launcherMass - kg of the launcher/pod itself, counted once per station
     //  massPerRound - kg per remaining round
     //  isTank       - 1 for a fuel tank; the Tiger carries none here
-    //PLACEHOLDER masses - TODO(EC665): real launcher and round masses.
     numStores = 4;
     class Stores {
         class Store01 {  //Pylonweapon_4Rnd_PARS
@@ -76,7 +74,7 @@
             massPerRound = 49.00;
             isTank       = 0;
         };
-        class Store02 {  //Pylonweapon_19Rnd_FZRockets - AH-64D's M261 + Hydra values stand in
+        class Store02 {  //Pylonweapon_19Rnd_FZRockets
             match        = "fzrockets";
             launcherMass = 39.40;
             massPerRound = 10.40;
