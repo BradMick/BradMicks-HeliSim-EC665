@@ -1,10 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Fuel //////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-//PLACEHOLDER: the AH-64D's two main cells - capacities, arms and low-fuel thresholds. The
-//AH-64D's centre (IAFS) cell and wing aux tanks are left out; the Tiger has neither.
-//TODO(EC665): Tiger tank layout, capacities and arms in model space.
-
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Fuel tanks ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -17,17 +13,14 @@
 //  removable - 1 if the tank can be taken out; 0 is always fitted
 //  role      - "main" (an engine can draw from it) or "xfer" (feeds the mains only)
 
-    //CROSSFEED positions - which main each engine feeds from in each valve position, by
-    //position among the "main" tanks. The first entry is the default.
+    //CROSSFEED positions - which tank each engine feeds from in each valve position, by
+    //tank variableName. The first entry is the default.
     numCrossfeedModes = 3;
     class CrossfeedModes {
-        class Norm { position = "NORM"; engSources[] = {0, 1}; };
-        class Fwd  { position = "FWD";  engSources[] = {0, 0}; };
-        class Aft  { position = "AFT";  engSources[] = {1, 1}; };
+        class Norm { position = "NORM"; engSources[] = {"fwdTank", "aftTank"}; };
+        class Fwd  { position = "FWD";  engSources[] = {"fwdTank", "fwdTank"}; };
+        class Aft  { position = "AFT";  engSources[] = {"aftTank", "aftTank"}; };
     };
-
-    //Which main tank the APU draws from. Unused with no APU modelled, but Core reads it.
-    apuFuelSource = 1;
 
     //XFER pump destinations, in main order.
     xferDestinations[] = {"FWD", "AFT"};
@@ -36,17 +29,17 @@
     class FuelTanks {
         class FuelTank01 {
             variableName = "fwdTank";
-            arm[]     = {0.000, 2.542, 0.000};
-            capacity  = 473.1;
-            lowFuelKg = 109.0;
+            arm[]     = {0.000, 1.900, 0.000};
+            capacity  = 590.0;
+            lowFuelKg = 92.0;
             removable = 0;
             role      = "main";
         };
         class FuelTank02 {
             variableName = "aftTank";
-            arm[]     = {0.000, -0.077, 0.000};
-            capacity  = 668.6;
-            lowFuelKg = 118.0;
+            arm[]     = {0.000, 1.200, 0.000};
+            capacity  = 575.0;
+            lowFuelKg = 92.0;
             removable = 0;
             role      = "main";
         };

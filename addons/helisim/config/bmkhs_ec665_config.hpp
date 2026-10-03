@@ -8,12 +8,8 @@ class BMKHS_HeliSim {
     //cockpit controls. The aircraft starts cold and wakes on the first collective input.
     useSystems = 0;
 
-    //Drivetrain ratings - with useSystems = 0 these are the ONLY torque limits, and an
-    //overtorque damages the rotors (HitHRotor / HitVRotor). Worst first: {fraction of rated
-    //torque, seconds it will hold there, divisor}.
-    //PLACEHOLDER: AH-64D ratings.
-    xmsnTqLimits[]   = {{2.30, 0, 20}, {2.00, 6, 10}};
-    ngbTqLimitsSE[]  = {{1.25, 0, 40}, {1.22, 6, 20}, {1.10, 150, 10}};
+    //How many engines. No hitpoints are declared, so this is where the count comes from.
+    numEngines = 2;
 
     #include "bmkhs_config\helisim_airfoils.hpp"
     #include "bmkhs_config\helisim_engine.hpp"
