@@ -17,26 +17,26 @@
             designRpm   = 8000;                 //100% Np, the shaft reference
             npFly       = 1.00;                 //governed Np in FLY, as a fraction of designRpm
             maxFuelFlow = 0.033;                //kg/s per unit of fuel - the gauge boundary
-            powerKw     = 960;                  //maximum continuous - the torque reference, refTq
+            powerKw     = 957;                  //100% torque, 1143 Nm at 8000 rpm - the torque reference, refTq
 
             //Hard shutdowns - both CUT FUEL rather than restricting it.
             maxNg = 1.10;                       //mechanical fly weights
-            maxNp = 1.196;                      //electrical trip
+            maxNp = 1.175;                      //engine overspeed
 
             //Engine Limits
-            oilPsiLimits[] = {0.23, 1.20};
+            oilPsiLimits[] = {0.203, 1.015};
             ngMin          = 0.63;
             ngLimits[]     = {{1.022, 12, 10}, {1.051, 0, 20}};
-            npLimits[]     = {{1.05, 12, 10}, {1.21, 0, 20}};
-            tqLimits[]     = {{1.00, 6, 5}, {1.15, 0, 10}};
-            tgtLimits[]    = {{810, 1800, 1000}, {870, 600, 0}, {878, 0, 0}, {949, 0, 2000}};
-            tqLimitsSe[]   = {{1.10, 150, 10}, {1.22, 6, 2}, {1.25, 0, 4}};
-            tgtLimitsSe[]  = {{810, 1800, 1000}, {870, 600, 0}, {878, 150, 0}, {896, 12, 0}, {949, 0, 2000}};
+            npLimits[]     = {{1.057, 30, 10}, {1.121, 0, 20}};
+            tqLimits[]     = {{0.94, 300, 5}, {1.006, 0, 10}};
+            tgtLimits[]    = {{894, 300, 1000}, {928, 0, 2000}};
+            tqLimitsSe[]   = {{0.94, 1800, 10}, {1.006, 150, 2}, {1.085, 30, 2}, {1.339, 0, 4}};
+            tgtLimitsSe[]  = {{894, 1800, 1000}, {928, 150, 0}, {962, 30, 0}, {1036, 0, 2000}};
 
             //Compressor - stations 2 -> 3.
             class Compressor {
-                pressureRatio = 17.0;    //at Ng 1.0
-                massFlow      = 4.6;     //kg/s at Ng 1.0, standard day
+                pressureRatio = 13.0;    //at Ng 1.0
+                massFlow      = 3.2;     //kg/s at Ng 1.0, standard day
                 inletDiameter = 0.396;   //m - for inlet losses, not yet modelled
                 ramRecovery   = 1.0;     //share of the ram pressure rise the inlet keeps
 
@@ -56,6 +56,33 @@
                     ,{ 20, 1.0567}
                     ,{ 30, 1.1648}
                     ,{ 40, 1.2354}
+                };
+
+                //Compressor map - the MTR390's own, replacing Core's T700-701C default.
+                compressorMap[] = {
+                     {0.0000, 0.0588, 0.0000, 0.544, 0.4335}
+                    ,{0.0500, 0.0595, 0.0116, 0.544, 0.4335}
+                    ,{0.1000, 0.0618, 0.0329, 0.544, 0.4335}
+                    ,{0.1500, 0.0656, 0.0604, 0.544, 0.4335}
+                    ,{0.2000, 0.0712, 0.0930, 0.544, 0.4335}
+                    ,{0.2500, 0.0789, 0.1300, 0.544, 0.4335}
+                    ,{0.3000, 0.0891, 0.1709, 0.544, 0.4335}
+                    ,{0.3500, 0.1024, 0.2153, 0.544, 0.4335}
+                    ,{0.4000, 0.1194, 0.2631, 0.544, 0.4335}
+                    ,{0.4500, 0.1410, 0.3139, 0.544, 0.4335}
+                    ,{0.5000, 0.1683, 0.3676, 0.544, 0.4335}
+                    ,{0.5500, 0.2026, 0.4241, 0.544, 0.4335}
+                    ,{0.6000, 0.2456, 0.4833, 0.544, 0.4335}
+                    ,{0.6173, 0.2629, 0.5043, 0.544, 0.4335}
+                    ,{0.6768, 0.3329, 0.5891, 0.595, 0.4462}
+                    ,{0.7546, 0.4559, 0.7130, 0.642, 0.4686}
+                    ,{0.8125, 0.5971, 0.8152, 0.657, 0.5028}
+                    ,{0.8790, 0.8651, 1.0310, 0.650, 0.5061}
+                    ,{0.8957, 0.9383, 1.0225, 0.651, 0.5130}
+                    ,{0.9133, 1.0155, 1.0261, 0.653, 0.5194}
+                    ,{0.9392, 1.1291, 1.1114, 0.655, 0.5174}
+                    ,{0.9500, 1.1766, 1.1471, 0.656, 0.5165}
+                    ,{1.0000, 1.3959, 1.3116, 0.659, 0.5126}
                 };
 
                 //Start thresholds - discrete events the model branches on.
@@ -78,7 +105,7 @@
 
                 maxTgt      = 1036;      //deg C - TGT limiter, twin engine
                 maxTgtSe    = 1036;      //deg C - TGT limiter, single engine
-                startTgt    = 851;       //deg C - the transient START limit, not the peak
+                startTgt    = 750;       //deg C - the transient START limit, not the peak
                 startMinTgt = 80;        //deg C - below this before the power lever is moved
 
                 //How violently an un-purged engine runs away, latched from TGT at the lever.
@@ -102,7 +129,7 @@
             //The ECU - what it schedules, and the ceilings it will not pass.
             class Governor {
                 //Minimum fuel the power lever schedules.
-                fuelIdle = 0.784;        //settles Ng at 0.679
+                fuelIdle = 0.539;        //settles Ng at 0.679
                 fuelFly  = 3.136;        //WIDE OPEN - the governor cuts back from here
 
                 //Fuel metered at light-off as a fraction of idle fuel. Sets the start PEAK.
@@ -110,7 +137,7 @@
 
                 ffwdGain = 1.00;         //collective anticipation - the load demand spindle
 
-                leverTravelTime = 8.0;   //seconds, idle to fly - the fuel ramp, Np and the lever animation
+                leverTravelTime = 15.0;   //seconds, idle to fly - the fuel ramp, Np and the lever animation
                 loadShareGain   = 8.0;   //how hard an engine below its matched partners trims up to them
 
                 //Np governor, {kp, ki, kd, ki_clamp}.
