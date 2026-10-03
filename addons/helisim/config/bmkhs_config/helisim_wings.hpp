@@ -50,7 +50,7 @@
         class Wing05 {
             name           = "leftVerticalFin";
             facing         = "right";
-            numElements    = 1;
+            numElements    = 2;
             airfoil        = "NACA 0012";
             chordLinePos   = 0.25;
             panels[] =
@@ -62,7 +62,7 @@
         class Wing06 {
             name           = "rightVerticalFin";
             facing         = "right";
-            numElements    = 1;
+            numElements    = 2;
             airfoil        = "NACA 0012";
             chordLinePos   = 0.25;
             panels[] =
