@@ -38,7 +38,7 @@
         };
         class Wing04 {
             name           = "verticalFin";
-            facing         = "right";
+            facing         = "left";
             numElements    = 4;
             airfoil        = "NACA 4418";
             chordLinePos   = 0.25;
