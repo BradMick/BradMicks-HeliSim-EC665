@@ -4,7 +4,7 @@
 
 | mod | why |
 |---|---|
-| BradMick's HeliSim 1.1.1.0 or later | the flight model this pack drives |
+| BradMick's HeliSim 1.2.0.0 or later | the flight model this pack drives |
 | BW-Mod | the Tiger itself (`bwa3_tiger`) |
 | CBA_A3 | HeliSim's dependency |
 
