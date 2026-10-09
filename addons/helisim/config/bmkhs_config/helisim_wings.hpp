@@ -29,7 +29,7 @@
             name           = "horizontalStabilizer";
             facing         = "up";
             numElements    = 4;
-            airfoil        = "NACA 0012";
+            airfoil        = "NACA 4418";
             chordLinePos   = 0.25;
             panels[] =
             {
