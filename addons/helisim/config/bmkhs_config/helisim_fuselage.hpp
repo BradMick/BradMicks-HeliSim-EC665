@@ -57,13 +57,14 @@
         class FuselagePanel03 {
             name          = "fuselageFront";
             facing        = "forward";
+            //Solved in Core's rig with the main rotor tables: max range, 129 kt, trims 5 deg nose low.
             dragCoefTable[] =
             {
-             {   0, 0.380}
-            ,{2000, 0.380}
-            ,{4000, 0.380}
-            ,{6000, 0.380}
-            ,{8000, 0.380}
+             {   0, 0.273}
+            ,{2000, 0.273}
+            ,{4000, 0.273}
+            ,{6000, 0.273}
+            ,{8000, 0.273}
             };
             panels[] =
             {
