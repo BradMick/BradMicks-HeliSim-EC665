@@ -60,11 +60,11 @@
             //Solved in Core's rig with the main rotor tables: max range, 129 kt, trims 5 deg nose low.
             dragCoefTable[] =
             {
-             {   0, 0.360}
-            ,{2000, 0.360}
-            ,{4000, 0.360}
-            ,{6000, 0.360}
-            ,{8000, 0.360}
+             {   0, 0.356}
+            ,{2000, 0.356}
+            ,{4000, 0.356}
+            ,{6000, 0.356}
+            ,{8000, 0.356}
             };
             panels[] =
             {
