@@ -27,7 +27,7 @@
         };
         class Wing03 {
             name           = "horizontalStabilizer";
-            facing         = "up";
+            facing         = "down";
             numElements    = 4;
             airfoil        = "NACA 4418";
             chordLinePos   = 0.25;
