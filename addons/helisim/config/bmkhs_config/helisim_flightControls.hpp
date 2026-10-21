@@ -43,6 +43,6 @@
     //Auto-pedal
     pidAutoAttPitch[]   = {0.0925, 0.0025, 0.0220, 0.1};
     pidAutoAttRoll[]    = {0.0400, 0.0015, 0.0250, 0.1};
-    pidAutoPedalHdg[]   = {0.1000, 0.0050, 0.0500, 0.15};
-    pidAutoPedalNtt[]   = {0.0300, 0.0080, 0.0100, 0.15};
+    pidAutoPedalHdg[]   = {0.0500, 0.0025, 0.0250, 0.15};   //half the AH-64D's - yaw/roll swung in the hover
+    pidAutoPedalNtt[]   = {0.0150, 0.0080, 0.0100, 0.15};   //kp half the AH-64D's - swung into NTT
     pidAutoPedalAero[]  = {0.6000, 0.5000, 0.4000, 0.1};
